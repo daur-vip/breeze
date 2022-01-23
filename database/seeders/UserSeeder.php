@@ -17,8 +17,22 @@ class UserSeeder extends Seeder
         $users = [
             [
                 'id'             => 1,
-                'name'           => 'Admin',
+                'name'           => 'Администратор',
                 'email'          => 'admin@admin.com',
+                'password'       => bcrypt('password'),
+                'remember_token' => null,
+            ],
+            [
+                'id'             => 2,
+                'name'           => 'Клиент',
+                'email'          => 'user@user.com',
+                'password'       => bcrypt('password'),
+                'remember_token' => null,
+            ],
+            [
+                'id'             => 3,
+                'name'           => 'Registrator',
+                'email'          => 'user@user.com',
                 'password'       => bcrypt('password'),
                 'remember_token' => null,
             ],
@@ -29,6 +43,28 @@ class UserSeeder extends Seeder
                 'password'       => bcrypt('password'),
                 'remember_token' => null,
             ],
+            [
+                'id'             => 2,
+                'name'           => 'User',
+                'email'          => 'user@user.com',
+                'password'       => bcrypt('password'),
+                'remember_token' => null,
+            ],
+            [
+                'id'             => 2,
+                'name'           => 'User',
+                'email'          => 'user@user.com',
+                'password'       => bcrypt('password'),
+                'remember_token' => null,
+            ],
+            [
+                'id'             => 2,
+                'name'           => 'User',
+                'email'          => 'user@user.com',
+                'password'       => bcrypt('password'),
+                'remember_token' => null,
+            ],
+
         ];
 
         User::insert($users);
