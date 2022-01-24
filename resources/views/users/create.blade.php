@@ -12,10 +12,10 @@
                     <x-validation-errors />
                     <x-success-message />
 
-                    <form method="POST" action="{{ route('users.store') }}">
+                    <form method="POST" action="{{ route('users.store') }}" autocomplete="off">
                         @csrf
                         <div class="grid grid-cols-2 gap-6">
-                            <div class="grid grid-rows-2 gap-6">
+                            <div class="grid grid-rows-4 gap-2">
                                 <div>
                                     <x-label for="name" :value="__('ФИО')" />
                                     <x-input id="name" class="block mt-1 w-full" type="text" name="name" autofocus />
@@ -24,27 +24,53 @@
                                     <x-label for="email" :value="__('Email')" />
                                     <x-input id="email" class="block mt-1 w-full" type="email" name="email" autofocus />
                                 </div>
-                            </div>
-                            <div class="grid grid-rows-2 gap-6">
                                 <div>
-                                   
+                                    <x-label for="birthday" :value="__('Дата рождения')" />
+                                    <x-input id="birthday" class="block mt-1 w-full" type="date" name="birthday"
+                                        autofocus />
+                                </div>
+                                <div>
+                                    <div>
+                                        <x-label for="phone1" :value="__('Телефон №1')" />
+                                        <x-input id="phone1" class="block mt-1 w-full" type="text" name="phone1"
+                                            autofocus />
+                                    </div>
+                                    <div>
+                                        <x-input id="is_whatsapp1" type="checkbox" /> 
+                                        <label for="is_whatsapp1">
+                                            <span class="font-medium text-sm text-gray-700">На этом номере имеется WhatsApp</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="grid grid-rows-4 gap-2">
+                                <div>
                                     <x-label for="country" :value="__('Роль пользователя')" />
-                                    <select id="country" name="country" autocomplete="country-name" 
+                                    <select id="country" name="country" autocomplete="country-name"
                                         class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                         @foreach ($roles as $id => $role)
 
-                                            <option 
-                                            @if ($id == 2)
+                                            <option @if ($id == 2)
                                                 selected="selected"
-                                            @endif
-                                            value="{{ $id }}">{{ $role }}</option>
+                                        @endif
+                                        value="{{ $id }}">{{ $role }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div>
                                     <x-label for="confirm_password" :value="__('Confirm password')" />
                                     <x-input id="confirm_password" class="block mt-1 w-full" type="password"
-                                        name="password_confirmation" autocomplete="confirm-password" />
+                                        name="password_confirmation" autocomplete="new-password" />
+                                </div>
+                                <div>
+                                    <x-label for="iin" :value="__('ИИН')" />
+                                    <x-input id="iin" class="block mt-1 w-full" type="text" name="iin" autofocus />
+                                </div>
+                                <div>
+                                    <x-label for="phone2" :value="__('Телефон №2')" />
+                                    <x-input id="phone2" class="block mt-1 w-full" type="text" name="phone2"
+                                        autofocus />
                                 </div>
                             </div>
                         </div>

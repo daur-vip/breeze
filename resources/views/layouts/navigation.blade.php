@@ -20,7 +20,7 @@
                         {{ __('Задачи') }}
                     </x-nav-link>
                     @endcan
-                    @can('user_access')
+                    @can('admin_user_access')
                     <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
                         {{ __('Пользователи') }}
                     </x-nav-link>

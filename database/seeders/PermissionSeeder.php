@@ -29,15 +29,15 @@ class PermissionSeeder extends Seeder
             ],
             [
                 'id'    => 4,
-                'title' => 'edit_schedule_access',
+                'title' => 'manager_schedule_access',
             ],
             [
                 'id'    => 5,
-                'title' => 'appointment_access',
+                'title' => 'registrator_appointment_access',
             ],
             [
                 'id'    => 6,
-                'title' => 'read_recipe_access',
+                'title' => 'doctor_recipe_access',
             ],
             [
                 'id'    => 7,
