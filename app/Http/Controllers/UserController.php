@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUserRequest;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -27,7 +29,16 @@ class UserController extends Controller
      */
     public function create()
     {
+
         $roles = Role::pluck('title', 'id');
+        if(Gate::denies('admin_user_access')) {
+            unset($roles[1]);
+            if(Gate::denies('manager_user_access')) {
+                $roles = [2 => $roles[2]];
+            }
+        } 
+        
+
 
         return view('users.create', compact('roles'));
     }
@@ -38,9 +49,12 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        //
+        $user = User::create($request->validated());
+        $user->roles()->sync($request->input('roles', []));
+        return redirect()->route('users.index');
+        
     }
 
     /**

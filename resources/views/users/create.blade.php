@@ -59,18 +59,27 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <x-label for="confirm_password" :value="__('Confirm password')" />
-                                    <x-input id="confirm_password" class="block mt-1 w-full" type="password"
-                                        name="password_confirmation" autocomplete="new-password" />
+                                    <x-label for="password" :value="__('Пароль')" />
+                                    <x-input id="password" class="block mt-1 w-full" type="password"
+                                        name="password" autocomplete="new-password" />
                                 </div>
                                 <div>
                                     <x-label for="iin" :value="__('ИИН')" />
                                     <x-input id="iin" class="block mt-1 w-full" type="text" name="iin" autofocus />
                                 </div>
                                 <div>
-                                    <x-label for="phone2" :value="__('Телефон №2')" />
-                                    <x-input id="phone2" class="block mt-1 w-full" type="text" name="phone2"
-                                        autofocus />
+                                    <div>
+                                        <x-label for="phone2" :value="__('Телефон №2')" />
+                                        <x-input id="phone2" class="block mt-1 w-full" type="text" name="phone1"
+                                            autofocus />
+                                    </div>
+                                    <div>
+                                        <x-input id="is_whatsapp2" type="checkbox" />
+                                        <label for="is_whatsapp2">
+                                            <span class="font-medium text-sm text-gray-700">На этом номере имеется
+                                                WhatsApp</span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
