@@ -2,11 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Rules\TwoWords;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class StoreUserRequest extends FormRequest
+class StoreAppointmentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +13,7 @@ class StoreUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -25,15 +23,8 @@ class StoreUserRequest extends FormRequest
      */
     public function rules()
     {
-
-        
         return [
-            'name' => ['required', new TwoWords],
-            'email' => Rule::unique('users', 'email')->ignore($this->user),
-            'phone1' => 'nullable|numeric|size:10',
-            'phone2' => 'nullable|numeric|size:10',
-            'password' => '',
-            
+            //
         ];
     }
 }

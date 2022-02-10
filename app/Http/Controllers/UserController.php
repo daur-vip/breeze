@@ -74,9 +74,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        $roles = Role::pluck('title', 'id');
+        return view('users.edit', compact(['roles', 'user']));
     }
 
     /**
@@ -86,9 +87,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreUserRequest $request, User $user)
     {
-        //
+        $user->update($request->validated());
+        return redirect()->route('users.index');
     }
 
     /**

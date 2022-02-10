@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
@@ -36,6 +37,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('tasks', TaskController::class);
 
     Route::resource('users', UserController::class);
+
+    Route::resource('appointments', AppointmentController::class);
 
 });
 

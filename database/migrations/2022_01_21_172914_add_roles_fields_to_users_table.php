@@ -18,11 +18,12 @@ class AddRolesFieldsToUsersTable extends Migration
             $table->string('iin')->nullable();
             $table->string('phone1')->nullable();
             $table->string('phone2')->nullable();
-            $table->string('whatsapp')->nullable();
             $table->string('address')->nullable();
             $table->foreignId('user_id')->nullable()->constrained();
             $table->integer('bonus')->default('0');
             $table->foreignId('discount_group_id')->nullable()->constrained();
+            $table->boolean('phone1whatsapp')->default(0);
+            $table->boolean('phone2whatsapp')->default(0);
         });
     }
 
